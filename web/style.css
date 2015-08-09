@@ -1,0 +1,7 @@
+.seat-btn {
+  height: 200px;
+}
+.seat-btn .btn {
+  height: 100%;
+  font-size: xx-large;
+}

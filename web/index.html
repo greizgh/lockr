@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lockr</title>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body ng-app="LockrWebApp" ng-controller="MainCtrl">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Lockr</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div ng-if="error" class="alert alert-danger">
+                <p>There has been an error. Make sure the server and the router are running and reload the page.</p>
+                <p>{{error}}</p>
+            </div>
+        </div>
+        <div class="container text-center seat-btn">
+            <button ng-class="{'btn-primary': seat_state, 'btn-danger': !seat_state && btn_disabled, 'btn-warning': !seat_state && !btn_disabled}"
+                class="btn btn-block" ng-disabled="error || btn_disabled" ng-click="toggleLock()">{{btn_msg}}</button>
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/autobahn/autobahn.min.js"></script>
+        <script src="bower_components/angular-wamp/release/angular-wamp.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
